@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="png" href="logo.png">
+  <title>lAB PM 2026</title>
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS terpisah: common.css (nav & dasar, seragam di semua halaman) + acara.css (khusus halaman ini) -->
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/acara.css">
+</head>
+<body>
+
+  <div class="app-container">
+    <!-- NAVBAR (markup seragam di semua halaman) -->
+    <header class="top-header">
+      <div class="nav-container">
+        <a href="index.html" class="brand">
+          <div class="brand-logo"><img src="logo.png" alt="Logo Laboratorium Pengolahan Mineral"></div>
+          <span>PENGOLAHAN MINERAL UPVYK 2026</span>
+        </a>
+
+        <button class="nav-toggle" id="navToggle" aria-label="Buka menu navigasi">
+          <span></span><span></span><span></span>
+        </button>
+
+        <nav id="mainNav">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="acara.html" class="active">Acara</a></li>
+            <li><a href="tata_tertib.html">Tata Tertib</a></li>
+            <li><a href="refrensi.html">Referensi</a></li>
+            <li><a href="format_laporan.html">Format Laporan</a></li>
+            <li><a href="asiste_lab.html">Asisten Lab</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+      <div class="animated-orb orb-1"></div>
+      <div class="animated-orb orb-2"></div>
+
+      <div class="content-wrapper">
+
+        <!-- SELECTOR TOMBOL ACARA 1 - 8 (DESKTOP/TABLET) -->
+        <div class="acara-selector-container">
+          <div class="acara-selector">
+            <button class="btn-acara active" onclick="switchAcara(1)">Acara 1</button>
+            <button class="btn-acara" onclick="switchAcara(2)">Acara 2</button>
+            <button class="btn-acara" onclick="switchAcara(3)">Acara 3</button>
+            <button class="btn-acara" onclick="switchAcara(4)">Acara 4</button>
+            <button class="btn-acara" onclick="switchAcara(5)">Acara 5</button>
+            <button class="btn-acara" onclick="switchAcara(6)">Acara 6</button>
+            <button class="btn-acara" onclick="switchAcara(7)">Acara 7</button>
+            <button class="btn-acara" onclick="switchAcara(8)">Acara 8</button>
+          </div>
+        </div>
+
+        <!-- DROPDOWN "PILIH ACARA" (KHUSUS HANDPHONE) -->
+        <div class="acara-select-mobile">
+          <label class="acara-select-label" for="acaraSelect">
+            <span class="acara-select-icon">📋</span> Pilih Acara
+          </label>
+          <div class="acara-select-wrapper">
+            <select id="acaraSelect" class="acara-select" onchange="switchAcara(parseInt(this.value))">
+              <option value="1">Acara 1 — Lorem Ipsum Dolor Sit</option>
+              <option value="2">Acara 2 — Consectetur Adipiscing Elit</option>
+              <option value="3">Acara 3 — Sed Do Eiusmod Tempor</option>
+              <option value="4">Acara 4 — Incididunt Ut Labore</option>
+              <option value="5">Acara 5 — Dolore Magna Aliqua</option>
+              <option value="6">Acara 6 — Ut Enim Ad Minim</option>
+              <option value="7">Acara 7 — Quis Nostrud Exercitation</option>
+              <option value="8">Acara 8 — Ullamco Laboris Nisi</option>
+            </select>
+            <span class="acara-select-arrow">▾</span>
+          </div>
+        </div>
+
+        <!-- HEADER ACARA TERPILIH -->
+        <div class="acara-header-box" id="acara-header">
+          <div class="acara-tag" id="display-tag">LOREM IPSUM DOLOR</div>
+          <h1 class="acara-title" id="display-title">Lorem Ipsum Dolor Sit Amet</h1>
+          <p class="acara-desc" id="display-desc">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+        </div>
+
+        <!-- 5 CARDS DINAMIS -->
+        <div class="cards-grid" id="cards-container">
+
+          <!-- Card 1: Pre-Praktikum -->
+          <a href="#" class="card-modul" id="card-pre">
+            <div class="card-icon">📝</div>
+            <div class="card-content-mobile">
+              <div class="card-title" id="title-pre">Lorem Ipsum Dolor</div>
+              <div class="card-sub" id="sub-pre">Lorem ipsum dolor sit amet consectetur</div>
+              <div class="card-btn">Lorem Ipsum <span>→</span></div>
+            </div>
+          </a>
+
+          <!-- Card 2: Tugas Praktikum -->
+          <a href="#" class="card-modul" id="card-tugas">
+            <div class="card-icon">📌</div>
+            <div class="card-content-mobile">
+              <div class="card-title" id="title-tugas">Lorem Ipsum Dolor</div>
+              <div class="card-sub" id="sub-tugas">Consectetur adipiscing elit sed do</div>
+              <div class="card-btn">Lorem Ipsum <span>→</span></div>
+            </div>
+          </a>
+
+          <!-- Card 3: Laporan Sementara -->
+          <a href="#" class="card-modul" id="card-laporan">
+            <div class="card-icon">📄</div>
+            <div class="card-title" id="title-laporan">Lorem Ipsum Dolor</div>
+            <div class="card-content-mobile">
+              <div class="card-sub" id="sub-laporan">Eiusmod tempor incididunt ut labore</div>
+              <div class="card-btn">Lorem Ipsum <span>→</span></div>
+            </div>
+          </a>
+
+          <!-- Card 4: Data Acara -->
+          <a href="#" class="card-modul" id="card-data">
+            <div class="card-icon">📊</div>
+            <div class="card-content-mobile">
+              <div class="card-title" id="title-data">Lorem Ipsum Dolor</div>
+              <div class="card-sub" id="sub-data">Et dolore magna aliqua ut enim</div>
+              <div class="card-btn">Lorem Ipsum <span>→</span></div>
+            </div>
+          </a>
+
+          <!-- Card 5: Panduan Praktikum -->
+          <a href="#" class="card-modul" id="card-panduan">
+            <div class="card-icon">📘</div>
+            <div class="card-content-mobile">
+              <div class="card-title" id="title-panduan">Lorem Ipsum Dolor</div>
+              <div class="card-sub" id="sub-panduan">Ad minim veniam quis nostrud</div>
+              <div class="card-btn">Lorem Ipsum <span>→</span></div>
+            </div>
+          </a>
+
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- SCRIPT DINAMIS UNTUK MENGUBAH HEADER & SETIAP KARTU -->
+  <script src="js/common.js"></script>
+  <script src="js/acara.js"></script>
+</body>
+</html>
